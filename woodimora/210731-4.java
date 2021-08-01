@@ -1,3 +1,5 @@
+// 프로그래머스 : 124의 나라
+
 class Solution {
     public String solution(int n) {
         String answer = "";
