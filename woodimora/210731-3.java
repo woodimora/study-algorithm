@@ -1,3 +1,5 @@
+//프로그래머스 : 더 맵게
+
 import java.util.*;
 class Solution {
     public int solution(int[] scoville, int K) {
