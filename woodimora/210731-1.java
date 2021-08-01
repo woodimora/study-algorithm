@@ -1,6 +1,7 @@
 //프로그래머스 : 오픈카톡방
 
 import java.util.*;
+
 class Process{
     String id;
     String act;
@@ -9,6 +10,7 @@ class Process{
         this.act = act;
     }
 }
+
 class Solution {
     public String[] solution(String[] record) {
         String[] answer = {};
