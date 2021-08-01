@@ -28,7 +28,6 @@ class Solution {
                 if(count != 0){
                     res = res - (length * count) + Integer.toString(count + 1).length();
                     answer = Math.min(res, answer);
-                    //System.out.println(length + "," + count + "," + res + "," + answer );
                     i = i + (count - 1) * length;
                     count = 0;
                 }
