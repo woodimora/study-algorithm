@@ -1,3 +1,5 @@
+//프로그래머스 : 오픈카톡방
+
 import java.util.*;
 class Process{
     String id;
