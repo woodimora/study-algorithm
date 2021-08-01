@@ -1,3 +1,5 @@
+//프로그래머스 : 짝지어 제거하기
+
 import java.util.*;
 class Solution {
     public int solution(String s) {
