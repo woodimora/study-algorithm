@@ -1,4 +1,4 @@
-// 프로그래머스 : 124의 나라
+// 프로그래머스 : 124 나라의 숫자
 
 class Solution {
     public String solution(int n) {
