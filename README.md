@@ -7,7 +7,7 @@
 - woodimora
 - zlrlo
 
-## 📌 Rule
+## 📌 Rule.
 
 [Pull Request & Commit 규칙]()
 
