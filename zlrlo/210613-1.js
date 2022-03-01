@@ -1,5 +1,5 @@
 /**
- * @param {string} s
+ * @param {string}
  * @return {boolean}
  */
  var isValid = function(s) {
