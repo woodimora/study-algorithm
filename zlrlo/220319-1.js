@@ -5,58 +5,43 @@ function solution(genres, plays) {
 
   const genresObj = {};
 
-  genres.forEach((genre) => {
-    genresObj[genre] = 0;
-  });
-
   [...genres].forEach((genre, index) => {
-    genresObj[genre] += plays[index];
+    genresObj[genre] = genresObj[genre]
+      ? genresObj[genre] + plays[index]
+      : plays[index];
   });
 
-  let sortedGenresList = [];
+  let genresCountObj = {};
 
-  for (let genre in genresObj) {
-    sortedGenresList.push({ name: genre, play: genresObj[genre] });
-  }
-
-  sortedGenresList.sort((a, b) => {
-    return b.play - a.play;
-  });
-
-  const sortedGenresObj = {};
-
-  genres.forEach((genre, index) => {
-    if (sortedGenresObj.hasOwnProperty(genre)) {
-      sortedGenresObj[genre].push({ number: index, play: plays[index] });
-    } else {
-      sortedGenresObj[genre] = [{ number: index, play: plays[index] }];
-    }
-  });
-
-  for (const genre in sortedGenresObj) {
-    sortedGenresObj[genre].sort((a, b) => {
-      if (a.play > b.play) {
-        return -1;
-      }
-
-      if (a.play < b.play) {
-        return 1;
+  answer = genres
+    .map((genre, index) => ({ name: genre, play: plays[index], number: index }))
+    .sort((a, b) => {
+      // 장르 확인
+      if (a.name !== b.name) {
+        // genresObj[a.name] > genresObj[b.name] = -1
+        return genresObj[b.name] - genresObj[a.name];
       }
 
       if (a.play === b.play) {
-        if (a.number < b.number) return -1;
-        if (a.number > b.number) return 1;
+        // a.number < b.number = -1
+        return a.number - b.number;
       }
+
+      // a.play >  b.play = -1
+      return b.play - a.play;
+    })
+    .filter(({ name }) => {
+      if (genresCountObj[name] >= 2) return false;
+
+      genresCountObj[name] = genresCountObj[name]
+        ? genresCountObj[name] + 1
+        : 1;
+
+      return true;
+    })
+    .map(({ number }) => {
+      return number;
     });
-  }
-
-  sortedGenresList.forEach((genreItem) => {
-    const limit = Math.min(2, sortedGenresObj[genreItem.name].length);
-
-    for (let i = 0; i < limit; i++) {
-      answer.push(sortedGenresObj[genreItem.name][i].number);
-    }
-  });
 
   return answer;
 }
